@@ -1,0 +1,24 @@
+INFO:     Will watch for changes in these directories: ['/home/workspace']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [158] using StatReload
+INFO:     Started server process [160]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     172.20.0.1:35130 - "HEAD / HTTP/1.1" 405 Method Not Allowed
+INFO:     172.20.0.1:35148 - "GET /stats/timeseries?days=30 HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35136 - "GET /stats/summary HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35148 - "GET /stats/timeseries?days=30 HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35136 - "GET /stats/summary HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35158 - "GET /stats/breakdown HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35158 - "GET /stats/breakdown HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35266 - "GET /stats/breakdown HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35250 - "GET /stats/summary HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35260 - "GET /stats/timeseries?days=30 HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35266 - "GET /stats/breakdown HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35260 - "GET /stats/timeseries?days=30 HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35250 - "GET /stats/summary HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35250 - "OPTIONS /seed HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35260 - "POST /seed HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35260 - "GET /stats/summary HTTP/1.1" 200 OK
+INFO:     172.20.0.1:35270 - "GET /stats/timeseries?days=30 HTTP/1.1" 200 OK
+INFO:     172.20.0.1:50206 - "GET /stats/breakdown HTTP/1.1" 200 OK

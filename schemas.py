@@ -12,7 +12,8 @@ Model name is converted to lowercase for the collection name:
 """
 
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, Literal
+from datetime import datetime
 
 # Example schemas (replace with your own):
 
@@ -40,6 +41,41 @@ class Product(BaseModel):
 
 # Add your own schemas here:
 # --------------------------------------------------
+
+class PaymentReturn(BaseModel):
+    """
+    Payment returns collection schema
+    Collection name: "paymentreturn" (lowercase of class name)
+    Represents a returned/failed/refunded payment event
+    """
+    transaction_id: str = Field(..., description="Original transaction ID")
+    customer_id: Optional[str] = Field(None, description="Customer identifier")
+    amount: float = Field(..., ge=0, description="Return amount in USD")
+    currency: str = Field("USD", description="Currency code")
+    reason: Literal[
+        "insufficient_funds",
+        "card_expired",
+        "fraud_suspected",
+        "disputed",
+        "technical_error",
+        "account_closed",
+        "other",
+    ] = Field(..., description="Reason for payment return")
+    status: Literal[
+        "pending",
+        "returned",
+        "refunded",
+        "reversed",
+        "chargeback",
+        "resolved",
+    ] = Field("returned", description="Current state of the return")
+    payment_method: Literal["card", "ach", "wire", "wallet"] = Field(
+        "card", description="Payment method"
+    )
+    region: Optional[str] = Field(None, description="Geographic region/country code")
+    customer_segment: Optional[str] = Field(None, description="Segment label")
+    occurred_at: datetime = Field(default_factory=datetime.utcnow, description="Event time")
+    days_to_return: Optional[int] = Field(None, ge=0, description="Days from payment to return")
 
 # Note: The Flames database viewer will automatically:
 # 1. Read these schemas from GET /schema endpoint
